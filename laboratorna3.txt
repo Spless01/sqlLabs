@@ -11,8 +11,8 @@
 11)
 12)SELECT NAME,DAT, MONTH(DAT), DAY(DAT),YEAR(DAT) FROM book;
 13)SELECT NAME AS 'Назва книги',DAT AS 'Дата видавництва',DATE_FORMAT(DAT,'%d/%m/%Y') FROM book;
-14)SELECT COD AS 'Код книги',PRICE AS 'Ціна',PRICE*29.37 AS 'Ціна в грн',PRICE*0.91 AS 'Ціна в євро',PRICE*150.63 AS 'Ціна в рублях' FROM book;
-15)SELECT COD AS 'Код книги',PRICE AS 'Ціна',TRUNCATE(PRICE*29.37,0) AS 'Ціна в грн без копійок',ROUND(PRICE*29.37,0) AS 'Ціна в грн округлена' FROM book;
+14)SELECT COD AS 'Код книги',COST AS 'Ціна',COST*29.37 AS 'Ціна в грн',COST*0.91 AS 'Ціна в євро',COST*150.63 AS 'Ціна в рублях' FROM book;
+15)SELECT COD AS 'Код книги',COST AS 'Ціна',TRUNCATE(PRICE*29.37,0) AS 'Ціна в грн без копійок',ROUND(PRICE*29.37,0) AS 'Ціна в грн округлена' FROM book;
 16)
 17)INSERT INTO book(ID,COD,NEW,NAME,COST,PUBLISH,PAGES,FORMAT,DAT,DRAW,THEME,CATEGORY) VALUES('101','247','Yes','Нейронні мережі','$35','ВИдавництво старого лева','656','152x203/16','2022/03/05','855','Біографія та Мемуари','Біографія');
 18)DELETE FROM book WHERE YEAR(DAT)<1990;
