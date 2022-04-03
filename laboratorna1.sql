@@ -81,6 +81,11 @@ INSERT INTO `book` (`ID`, `COD`, `NEW`, `NAME`, `COST`, `PUBLISH`, `PAGES`, `FOR
 ALTER TABLE `book`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `id_index` (`ID`);
+ALTER TABLE book add Author varchar(15);
+ALTER TABLE book modify column Author varchar(20);
+ALTER TABLE book DROP column Author;
+CREATE unique index title_idx ON book(name_book DESC);
+ALTER TABLE book DROP index title_idx
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
