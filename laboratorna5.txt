@@ -1,0 +1,19 @@
+
+2)
+a)CREATE TABLE zamovniki (
+    product_number INT(10) NOT NULL PRIMARY KEY,
+    zamovnik_name VARCHAR(20),
+    adress VARCHAR(200),
+    price INT(10) CHECK (price > 0),
+    dostavka VARCHAR(5) DEFAULT 'Yes'
+);
+b)INSERT INTO zamovniki`(`product_number, zamovnik_name, adress, price, `dostavka`) VALUES ('225','Max Koval','Shmidta 19','20’,’Yes’);
+3)ALTER TABLE zamovniki ADD FOREIGN KEY (`product_number`) REFERENCES `book`(`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+4)
+ а)робота цього майстра скриптів зроблена таким чином, коли ми натискаємо наприклад кнопку створення таблиці, він автоматично вписує вже підготований код для створення таблиці, вам лише потрібно вказати ім’я таблиці.
+b)Я створив окрему таблицю try tool де в мене є 2 стовпця тип даних і значення за замовчуванням я вибрав одразу прі створенні 1) Try tool1 який має primary key за замовчуванням null та Try tool 2
+c)за допомогою лише однієї кнопки Insert ми маємо одразу написаний скрипт в який нам потрібно лише вписати значення - INSERT INTO try_tool`(`Try tool1, `Try tool 2`) VALUES ('[value-1]','[value-2]') майстер скриптів працює дуже швидко.
+d) ЗГЕНЕРОВАНИЙ - INSERT INTO try_tool`(`Try tool1, `Try tool 2`) VALUES ('[value-1]','[value-2]’).
+     ВЛАСНЕ МІЙ - INSERT INTO  try_tool (‘Try tool1’,’Try tool 2’) VALUES(’12’,’some values here’)
+     Відмінність між ними мінімальна, але вона є. Наприклад генерація скрипта завжді ставить ім’я таблиці в ``. В той час як я так не роблю. Це все що я помітив.
+e)Висновок роботи майстра скриптів можу сказати що це дуже зручний помічник, але не потрібно ним зловживати, старайтесь робити на парших етапах роботи з sql все самим, а вже потім як ви вивчите основи можна почати користуватися майстром скриптів.
