@@ -1,6 +1,6 @@
 1)CREATE PROCEDURE SelectBooks() SELECT NAME,COST,PUBLISH,FORMAT FROM book,category_books WHERE book.CATEGORY = category_books.id;
 2)CREATE PROCEDURE SelectBooks_2() SELECT book.THEME,book.CATEGORY,book.NAME,book.PUBLISH, category_books.CATEGORY FROM book INNER JOIN category_books ON book.CATEGORY=category_books.id;
-3)CREATE PROCEDURE SelectBooks_3() SELECT * FROM book  WHERE PUBLISH LIKE '%BHV' AND DAT > '12/29/2000';
+3)CREATE PROCEDURE SelectBooks_3() SELECT *, publish_books.publish FROM book INNER JOIN publish_books ON book.PUBLISH=publish_books.id WHERE publish_books.publish LIKE '%BHV' AND book.DAT > '12/29/2001';
 4)CREATE PROCEDURE SelectBooks_4() SELECT CATEGORY, PAGES FROM book GROUP BY PAGES;
 5)CREATE PROCEDURE SelectBooks_5() SELECT AVG(COST) FROM book INNER JOIN category_books WHERE book.THEME LIKE'%Використання ПК%' AND category_books.category LIKE '%Linux%';
 6)CREATE PROCEDURE SelectBooks_6() SELECT * FROM book,category_books WHERE book.CATEGORY = category_books.id;
@@ -8,8 +8,8 @@
 8)
 9)CREATE PROCEDURE SelectBooks_9() SELECT * FROM book WHERE book.CATEGORY =(SELECT category_books.id FROM category_books WHERE category_books.category LIKE '%C&C++%');
 10)CREATE PROCEDURE Select_books10() SELECT PAGES,COST,ID FROM book WHERE PAGES IN(SELECT PAGES FROM book WHERE PAGES>400) ORDER BY COST,PAGES;
-11)CREATE PROCEDURE Select_books11() SELECT * FROM book WHERE PUBLISH LIKE '%BHV';
-12)CREATE PROCEDURE Select_books12() SELECT * FROM book WHERE PUBLISH LIKE '%BHV’;—?
+11)CREATE PROCEDURE Select_books11() SELECT *, publish_books.publish FROM book INNER JOIN publish_books ON book.PUBLISH=publish_books.id WHERE publish_books.publish LIKE '%BHV';;
+12)CREATE PROCEDURE Select_books12() SELECT *, publish_books.publish FROM book INNER JOIN publish_books ON book.PUBLISH=publish_books.id WHERE publish_books.publish LIKE '%BHV';;—?
 13)
 14)CREATE PROCEDURE Select_books14() (SELECT THEME, CATEGORY FROM book) UNION (SELECT id,category FROM category_books GROUP BY id) ORDER BY THEME;
 15)
